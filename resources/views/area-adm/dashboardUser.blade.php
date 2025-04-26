@@ -22,7 +22,7 @@
                 <h2>{{ $usuario->nome_user }}</h2>
             </div>
           <div class="buttonSair">
-          <button class="botaoSair">DESATIVAR CONTA<i class="bi bi-x-circle" style="color:#8F0000;"></i></i>
+          <a href="/curseiAdm/desativarUsuarios/{{$usuario -> id}}"><button class="botaoSair">DESATIVAR CONTA<i class="bi bi-x-circle" style="color:#8F0000;"></i></i></a>
 
 
 
