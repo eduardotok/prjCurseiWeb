@@ -1,0 +1,39 @@
+.azul{
+    --cor-tema: #448FFF;
+    --cor-secundaria-tema: #ffffff;
+    --cor-fonte-tema: #fff;
+    --cor-fonte-tema-2: #000;
+}
+.laranja{
+    --cor-tema: #cb7c00;
+    --cor-secundaria-tema: #ffffff;
+    --cor-fonte-tema: #fff;
+    --cor-fonte-tema-2: #000;
+}
+.vermelho{
+    --cor-tema: #b92020;
+    --cor-secundaria-tema: #ffffff;
+    --cor-fonte-tema: #fff;
+    --cor-fonte-tema-2: #000;
+}
+
+.dark{
+    --cor-tema: #181106;
+    
+    --cor-secundaria-tema: #ffffff;
+    --cor-fonte-tema: #fff;
+    --cor-fonte-tema-2: #ffffff;
+}
+
+.roxo{
+    --cor-tema: #66326D;
+    --cor-secundaria-tema: #ffffff;
+    --cor-fonte-tema: #fff;
+    --cor-fonte-tema-2: #000;
+}
+.azul-escuro{
+    --cor-tema: #0d17a3;
+    --cor-secundaria-tema: #ffffff;
+    --cor-fonte-tema: #fff;
+    --cor-fonte-tema-2: #000;
+}

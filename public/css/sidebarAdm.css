@@ -1,0 +1,184 @@
+.sidebar{
+    min-width: 300px;
+    width: 390px;
+    background-color: var(--branco);
+    height: 100vh;
+    justify-content: start;
+    position: sticky;
+    top: 0px;
+    margin: 0px;
+    padding: 0px;
+    padding-top: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.22);
+
+    & .row{
+        padding: 0px;
+        margin: 0px;
+    }
+    & .logo-sidebar{
+        
+        height: 40px;
+        & img{
+            height: 100%;
+            object-fit: contain;
+
+        }
+    }
+    & .adm-sidebar{
+        
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 10%;
+        width: 100%;
+        height: fit-content;
+        padding: 0px;
+        align-items: center;
+        height: 50px;
+        
+        & i{
+            margin: 0px;
+            padding: 0px;
+            font-size: 50px;
+           }
+        
+        & .textos{
+         font-size: 19px;
+            margin-right: 10%;
+         height: fit-content;
+         & p{
+            font-weight: 600;
+            margin: 0px;
+            height: 25px;
+
+            & span {
+                color: var( --cinzaClaro);
+            }
+         }
+        }
+    }
+    & .links-sidebar{
+        margin-top: 10%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        
+        & .link-sidebar{
+            display: flex;
+            font-size: 20px;
+            font-weight: bold;
+            justify-content: center;
+            gap: 30px;
+            text-decoration: none;
+            color: var(--preto);
+            align-items: center;
+            align-content: center;
+            padding-block: 6%;
+            cursor: pointer;
+            & p{
+                margin: 0px;
+                width: 50%;
+                
+            }
+            & i{
+                font-size: 34px;
+            }
+
+            &:hover{
+                background-color: rgba(5, 164, 182, 0.165);
+                color: var(--verde);
+                
+            }
+        }
+        &  .link-atual{
+            background-color: rgba(5, 164, 182, 0.165);
+            color: var(--verde);
+            border-left: 4px solid var(--verde);
+        }
+    }
+}
+.fechar-celular{
+    width: 100%;
+    display: none;
+    justify-content: end;
+    & button{
+        background-color: transparent;
+        color: var(--verde);
+        border: none;
+        outline: none;
+        font-size: 30px;
+    }
+}
+.sidebar-celular{
+    display: none;
+    
+}
+
+@media (max-width:1700px){
+    .fechar-celular{
+        display: flex;
+    }
+    .sidebar{
+        display: none;
+        animation: AbrirsidebarCelular 350ms ease-in-out;
+        position:fixed;
+        z-index: 99;
+        overflow: scroll;
+        & .link-sidebar{
+            padding: 0px;
+            font-size: 15px;
+        }
+    }
+    @keyframes AbrirsidebarCelular{
+        from{
+            transform: translateX(-100%);
+
+        }
+        to{
+            transform: translateX(-0%);
+
+        }
+    }
+    .fecharSidebar{
+        animation: FecharsidebarCelular 350ms ease-in-out;
+        display: none;
+    }
+    @keyframes FecharsidebarCelular{
+        from{
+            transform: translateX(-0%);
+
+        }
+        to{
+            transform: translateX(-100%);
+
+        }
+    }
+    .sidebar-celular{
+        display: flex;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.22);
+        width: fit-content;
+        position: sticky;
+        background-color: var(--branco);
+        width: 100%;
+        z-index: 1;
+        padding-block: 1%;
+        & button{
+            background-color: transparent;
+            border: none;
+
+            & i{
+                font-size: 50px;
+                color: var(--verde);
+            }
+        }
+    }
+    .fecharsidebar{
+        display: flex;
+    }
+    .navegadores-sidebar{
+        height: 85%;
+    }
+}

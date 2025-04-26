@@ -1,0 +1,179 @@
+.cont {
+    width: 94%;
+    padding: 0px;
+}
+
+.tituloPag {
+    font-size: 40px;
+    color: var(--cinzaEscuro);
+    font-weight: bold;
+    margin-top: 2%;
+}
+
+.configuracoes {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 70%;
+    border-radius: 10px;
+    gap: 20px;
+    .card {
+        background-color: var(--branco);
+        box-shadow: none;
+        border: none;
+        border-left: 4px solid var(--verde);
+        padding: 2% 4%;
+        width: 100%;
+
+        .titulo {
+            font-size: 30px;
+            color: var(--verde);
+            font-weight: bold;
+            margin: 0px;
+        }
+
+        .desc {
+            margin: 0px;
+            color: var(--cinzaClaro);
+            font-weight: 500;
+        }
+    }
+
+    .card-tema {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 3%;
+        flex-wrap: wrap;
+        row-gap:20px ;
+
+        /* From Uiverse.io by ErzenXz */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 80px;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .toggle-switch input[type="checkbox"] {
+            display: none;
+        }
+
+        .toggle-switch-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ddd;
+            border-radius: 20px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .toggle-switch-handle {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 30px;
+            height: 30px;
+            background-color: #fff;
+            border-radius: 50%;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .toggle-switch::before {
+            content: "";
+            position: absolute;
+            top: -25px;
+            right: -35px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #aaa;
+            text-shadow: 1px 1px #fff;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .toggle-switch input[type="checkbox"]:checked+.toggle-switch-handle {
+            transform: translateX(45px);
+        }
+
+        .toggle-switch input[type="checkbox"]:checked+.toggle-switch-background {
+            background-color: var(--verde);
+        }
+
+        .toggle-switch input[type="checkbox"]:checked+.toggle-switch:before {
+            content: "On";
+            color: var(--verde);
+            right: -15px;
+        }
+
+        .toggle-switch input[type="checkbox"]:checked+.toggle-switch-background .toggle-switch-handle {
+            transform: translateX(40px);
+        }
+
+    }
+}
+.editarConta{
+    margin-top: 3%;
+    label{
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--cinzaClaro);
+    }
+    button{
+        background: var(--verde);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding-block: 0.7%;
+        width: 270px;
+        font-weight: 600;
+        font-size: 20px;
+    }
+}
+.contInput{
+    width: 50%;
+    min-width: 50%;
+    max-width: 100%;
+    height: 45px;
+    border-radius: 10px;
+    background-color: var(--branco);
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 1% 2%;
+    align-items: center;
+    border: 1px solid var(--borderInput);
+    margin-bottom: 2%;
+    & input{
+        background-color: transparent;
+        width: 95%;
+        height: 100%;
+        border: none;
+        outline: none;
+        color: var(--cinzaClaro);
+        font-weight: 500;
+        
+        &:focus{
+            color: var(--cinzaEscuro);
+           
+        }
+       
+    }
+    & i{
+        color: var(--cinzaClaro);
+        cursor: pointer;
+    }
+}
+@media(max-width:1000px){
+    .configuracoes{
+        width: 100%;
+        .card{
+            padding-block: 4%;
+        }
+    }
+    .contInput{
+        width: 100%;
+    }
+}

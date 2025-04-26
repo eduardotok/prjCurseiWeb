@@ -1,0 +1,104 @@
+@import url(style.css);
+@import url(temas.css);
+.modal-ativo{
+    display: flex;
+}
+
+.modal-oculto{
+    display: none;
+}
+
+.container-modal{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.432);
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-modal-temas{
+    height: auto;
+    width: 400px;
+    background-color: var(--branco);
+    border-radius: 20px;
+    border: var(--cor-tema) 2px solid;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.box-modal-temas h1{
+    font-size: 2rem;
+}
+
+.conteudo-modal-temas{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: flex-end;
+
+    gap: 20px;
+}
+.conteudo-modal-temas .button-laranja{
+    width: 50px;
+    height: 50px;
+    background-color: var(--laranja);
+    border: none;
+    border-radius: 10px;
+}
+.conteudo-modal-temas .button-azul{
+    width: 50px;
+    height: 50px;
+    background-color: var(--azul);
+    border: none;
+    border-radius: 10px;
+}
+.conteudo-modal-temas .button-vermelho{
+    width: 50px;
+    height: 50px;
+    background-color: var(--vermelho);
+    border: none;
+    border-radius: 10px;
+}
+.conteudo-modal-temas .button-dark{
+    width: 50px;
+    height: 50px;
+    background-color: var(--dark);
+    border: none;
+    border-radius: 10px;
+}
+.conteudo-modal-temas .button-roxo{
+    width: 50px;
+    height: 50px;
+    background-color: var(--roxo);
+    border: none;
+    border-radius: 10px;
+}
+.conteudo-modal-temas .button-azul-escuro{
+    width: 50px;
+    height: 50px;
+    background-color: var(--azul-escuro);
+    border: none;
+    border-radius: 10px;
+}
+
+.footer-modal{
+    width: 100%;
+    margin-top: 20px;
+    height: 60px;
+}
+
+.footer-modal button{
+    height: 50px;
+    width: 120px;
+    background-color: var(--cor-tema);
+    border: none;
+    color: var(--cor-fonte-tema);
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+}

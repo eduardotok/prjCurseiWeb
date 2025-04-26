@@ -1,0 +1,85 @@
+.container-modal-informacoes{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.432);
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+}
+.box-modal-informacoes{
+    height: auto;
+    width: 800px;
+    background-color: var(--branco);
+    border-radius: 20px;
+    border: var(--cor-tema) 2px solid;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.box-modal-informacoes h1{
+    font-size: 2rem;
+}
+
+.conteudo-modal-informacoes{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+
+}
+.conteudo-modal-informacoes ul li{
+    list-style-type: none;  
+    font-size: 1.3rem;
+    font-weight: 500;  
+    margin-block: 10px;
+}
+.div-datas span{
+    font-size: 1.3rem;
+    font-weight: 500;  
+}
+
+.div-label-bio{
+    text-align: start;
+    padding-left: 30px;
+    width: 90%;
+    font-size: 1.4rem;
+    font-weight: 500;  
+}
+
+.div-bio{
+    width: 90%;
+    padding: 30px;
+    border: var(--cor-tema) 2px solid;
+    border-radius: 10px;
+    height: auto;
+    text-align: start;
+}
+.div-bio span{
+    font-size: 1.1rem;
+
+}
+
+
+.footer-modal{
+    width: 100%;
+    margin-top: 20px;
+    height: 60px;
+}
+
+.footer-modal-informacoes button{
+    height: 50px;
+    width: 120px;
+    background-color: var(--cor-tema);
+    border: none;
+    color: var(--cor-fonte-tema);
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+

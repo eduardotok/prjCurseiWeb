@@ -1,0 +1,252 @@
+
+@import url(style.css);
+
+
+
+.div-img-alterar{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--preto);
+    position: relative;
+    
+}
+
+.img-alterar{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.conteudo-img-perfil{
+    opacity: 0;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(15, 15, 15, 0.151);
+    border-radius: 50%;
+    transition: 0.4s;
+    color: var(--branco);
+    font-size: 1.4rem;
+}
+.conteudo-img-perfil:hover{
+    opacity: 1;
+   cursor: pointer;
+}
+
+.span-foto-perfil{
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+.span-frase-banner{
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--preto);
+}
+
+.div-img-banner{
+    width: 97%;
+    height: 300px;
+    background-color: var(--preto);
+    border-radius: 25px;
+    object-fit: cover;
+    position: relative;
+}
+
+.img-banner{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+
+}
+.conteudo-banner{
+    opacity: 0;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 25px;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(15, 15, 15, 0.151);
+    transition: 0.4s;
+    color: var(--branco);
+    font-size: 1.4rem;
+}
+.conteudo-banner i{
+    font-size: 4rem;
+}
+.conteudo-banner:hover{
+    opacity: 1;
+   cursor: pointer;
+}
+.span-alterar{
+    font-size: 1rem;
+    font-weight: 600;
+
+}
+
+.input-alterar{
+    width: 99%;
+    height: 100%;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+    border: none;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.input-alterar:focus{
+    outline: none;
+}
+
+.botao-salvar{
+    background-color: var(--cor-tema);
+    border: none;
+    color: var(--branco);
+    width: 140px;
+    height: 50px;
+    border-radius: 5px;
+    font-weight: 600;
+    margin-right: 20px;
+}
+
+.botao-cancelar{
+    background-color: var(--branco);
+    border: none;
+    color: var(--preto);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+    width: 140px;
+    height: 50px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.box-preview-perfil{
+    width: 90%;
+    height: 770px;
+    background-color: var(--branco);
+    border: 1px solid #B7B7B7;
+    border-radius: 25px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.tit-preview{
+    color: rgba(128, 128, 128, 0.651);
+    font-weight: bold;
+}
+.banner-preview{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-top-right-radius: 24px;
+    border-top-left-radius: 24px;
+}
+
+.div-img-preview-perfil{
+    position: absolute;
+    bottom: -50px;
+    left: 40px;
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    background-color: var(--branco);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-preview-perfil{
+    width: 96%;
+    height: 96%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.button-editar-preview{
+    width: 206px;
+    height: 30px;
+    background-color: var(--azul);
+    border-radius: 10px;
+    border: none;
+    color: var(--branco);
+}
+
+.button-editar-preview:focus{
+    outline: none;
+}
+
+.nome-usuario-preview{
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--preto);
+}
+
+.arroba-usuario-preview{
+    font-weight: 600;
+    font-size: 1.0rem;
+    color: #818181;
+}
+
+.span-seguidores{
+    color: #818181;
+    font-weight: 500;
+    
+}
+
+.botao-seguindo{
+    background-color: var(--azul);
+    width: 200px;
+    height: 35px;
+    border-radius: 10px;
+    color: var(--branco);
+    border: none;
+}
+
+.botao-mensagem{
+    background-color: var(--branco);
+    width: 200px;
+    height: 35px;
+    border-radius: 10px;
+    color: var(--preto);
+    border: #E2E2E2 1px solid;
+}
+
+.box-post-perfil-preview{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--cor-secundaria-tema);
+}
+
+.box-post-perfil-preview img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.box-post-conteudo-preview{
+    background-color: #818181;
+     width: 89%; 
+     height: auto;
+
+}
+.box-post-conteudo-preview img{
+     width: 70%; 
+     height: 100;
+     object-fit: cover;
+     
+}

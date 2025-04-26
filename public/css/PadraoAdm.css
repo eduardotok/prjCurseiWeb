@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    font-family: 'Inter', sans-serif;
+  
+}
+body{
+    background-color: var(--fundo);
+    color: var(--preto);
+    margin: 0px;
+    display: flex;
+   
+}
+main{
+    width: 100%;
+}
+@media (max-width:1700px){
+    body{
+        flex-direction: column;
+    }
+}
+/* isso aqui é pra sidebar não sobrepor as paradas ja que ela vai ta no position fixed
+se for usar o margin coloque isso ,se for fazer diferente pd tirar  */
