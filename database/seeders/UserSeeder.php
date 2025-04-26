@@ -4,33 +4,33 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Hash;
-
 
 class UserSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run(): void
     {
+        $nomes = [
+            'Guilherme', 'Rian', 'Breno', 'Hugo', 'Victor', 'Eduardo', 'Ellen', 'Caroline',
+            'Felipe', 'Klayver', 'O alencar', 'Clara', 'O sergio', 'Isabela', 'Rafaela', 'Thiago',
+            'Carla', 'O santana', 'Camila','Vinícius', 'Fatec', 'Senai', 'Uninove', 'Enap', 'Etec',
+        ];
+
         $users = [];
 
-        for ($i = 1; $i <= 5; $i++) {
+        foreach ($nomes as $i => $nome) {
             $users[] = [
-                'nome_user'    => "Usuário {$i}",
-                'email_user'   => "usuario{$i}@exemplo.com",
-                'senha_user'   => Hash::make("senha{$i}"),
-                'img_user'     => "default.png",
-                'banner_user'  => "default_banner.png",
-                'token_user'   => Str::random(60),
-                'status_user'  => 1, // 1 = ativo, por exemplo
-                'bio_user'     => "Bio do usuário {$i}",
-                'arroba_user'  => "usuario{$i}",
+                'nome_user'    => $nome,
+                'email_user'   => strtolower($nome) . $i . '@gmail.com',
+                'senha_user'   => Hash::make('senha123'),
+                'img_user'     => 'default' . ($i + 1) . '.png',              
+                'banner_user'  => 'default_banner' . ($i + 1) . '.png',       
+                'token_user'   => Str::random(40),
+                'status_user'  => 1,
+                'bio_user'     => "Olá, eu sou {$nome}!",
+                'arroba_user'  => strtolower($nome) . $i,
                 'created_at'   => Carbon::now(),
                 'updated_at'   => Carbon::now(),
             ];

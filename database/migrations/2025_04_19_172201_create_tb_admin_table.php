@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nome_admin', 100);
             $table->string('email_admin', 100)->unique();
             $table->string('password', 300);
-            $table->string('token_admin', 36)->unique();
+            $table->string('token_admin', 300)->unique();
             $table->string('img_admin', 36)->nullable();
             $table->timestamps();
         });
