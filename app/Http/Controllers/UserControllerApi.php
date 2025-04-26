@@ -1,0 +1,182 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Storage;
+
+class UserControllerApi extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexApi()
+    {
+        $users = User::all();
+
+        return $users;
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+
+public function storeApi(Request $request)
+{   
+    $nomeImagem = null;
+    $nomeBanner = null;
+
+    if ($request->hasFile('imgUser') && $request->file('imgUser')->isValid()) {
+        $extensao = $request->file('imgUser')->getClientOriginalExtension();
+        $nomeImagem = md5($request->file('imgUser')->getClientOriginalName() . strtotime('now')) . "." . $extensao;
+        $request->file('imgUser')->move(public_path('img/img-instituicao/img-perfil'), $nomeImagem);
+    }
+
+    if ($request->hasFile('bannerUser') && $request->file('bannerUser')->isValid()) {
+        $extensaoBanner = $request->file('bannerUser')->getClientOriginalExtension();
+        $nomeBanner = md5($request->file('bannerUser')->getClientOriginalName() . strtotime('now')) . "." . $extensaoBanner;
+        $request->file('bannerUser')->move(public_path('img/img-instituicao/banners'), $nomeBanner);
+    }
+
+    $user = User::create([
+        'nome_user' => $request->nomeUser,
+        'email_user' => $request->emailUser,
+        'senha_user' => $request->senhaUser,
+        'img_user' => $nomeImagem,
+        'banner_user' => $nomeBanner,
+        'status_user' => 1,
+        'bio_user' => $request->bioUser,
+        'arroba_user' => $request->arrobaUser,
+        'created_at' => now(),
+    ]);
+
+    return response()->json([
+        'sucesso' => true,
+        'mensagem' => 'Usuário Cadastrado com Sucesso!',
+        'code' => 200,
+        'Post' => $user,
+    ]);
+}
+
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showApi($id)
+    {
+        $user = User::where('id', $id)->get();
+        return $user;
+        // return response()->json([
+        //     'sucesso' => true,
+        //     'mensagem' => 'Usuario Encontrado com Sucesso!',
+        //     'code' => 200,
+        //     'Post' => $user
+        // ]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateApi(Request $request, $id)
+    {
+        $verificarUser = User::all()->where('id', $id);
+
+        foreach($verificarUser as $item){
+            if($request->hasFile('imgUser') && $request->file('imgUser')->isValid()){
+                
+                if($item->img_user && Storage::exists($item->img_user)){
+                    Storage::delete($item->img_user);
+                }
+    
+                $extensao = $request->imgUser->extension();
+    
+                $nomeImagem =   md5($request->imgUser->getClientOriginalName() . strtotime('now'). "." . $extensao);
+    
+                $request->imgUser->move(public_path('img/img-instituicao/img-perfil'), $nomeImagem);
+    
+            } if($request->hasFile('bannerUser') && $request->file('bannerUser')->isValid()){
+                if($item->img_banner && Storage::exists($item->banner_user)){
+                    Storage::delete($item->banner_user);
+                }
+    
+                $extensaoBanner = $request->bannerUser->extension();
+    
+                $nomeBanner = md5($request->bannerUser->getClientOriginalName() . strtotime('now') . "." . $extensaoBanner);
+    
+                $request->bannerUser->move(public_path('img/img-instituicao/banners/'), $nomeBanner);
+            }
+        }
+       
+
+        $user = User::where('id', $id)->update([
+            'nome_user' => $request->nomeUser,
+            'email_user' => $request->emailUser,
+            'senha_user' => $request->senhaUser,
+            'img_user' =>  $nomeImagem,
+            'banner_user' => $nomeBanner,
+            'status_user' => $request->statusUser,
+            'bio_user' => $request->bioUser,
+            'arroba_user' => $request->arrobaUser,
+            'updated_at' => now()
+        ]); 
+
+        return response()->json([
+            'sucesso' => true,
+            'mensagem' => 'Usuario Atualizado com Sucesso!',
+            'code' => 200,
+            'Post' => $user
+        ]);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyApi($id)
+    {
+        $user = User::where('id', $id)->delete();
+
+        return response()->json([
+            'sucesso' => true,
+            'mensagem' => 'Usuario Excluído com Sucesso!',
+            'code' => 200,
+        ]);
+    }
+}
