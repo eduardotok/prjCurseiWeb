@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'adm' => [
+            'driver' => 'session',
+            'provider' => 'adms', // o provider também precisa existir
+        ],
     ],
 
     /*
@@ -63,6 +67,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+
+        'adms' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Adm::class, // ou o seu modelo correto
         ],
 
         // 'users' => [
