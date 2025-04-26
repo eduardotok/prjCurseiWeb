@@ -269,7 +269,10 @@ justify-content: center;
     flex-direction: column;
 
   }
-
+.painel-usuario a{
+  text-decoration: none;
+    color: inherit;
+  }
   .headerUserAdm{
     display: flex;
     justify-content: space-between;
@@ -288,6 +291,7 @@ justify-content: center;
     color: #8F0000;
     border: none;
     background-color: transparent;
+  
 
   }
 
