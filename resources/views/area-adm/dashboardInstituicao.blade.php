@@ -18,11 +18,11 @@
         <div class="headerUserAdm">
 
             <div class="cabecalhoUser">
-                <img class="fotoUser" src="{{ asset('img/user/fotoPerfil' . ($usuario->img_user ?? 'default-banner.jpg')) }}" alt="Logo">
+                <img class="fotoUser" src="{{ asset('img/user/fotoPerfil/' . ($usuario->img_user ?? 'default-banner.jpg')) }}" alt="Logo">
                 <h2>{{ $usuario->nome_user }}</h2>
             </div>
           <div class="buttonSair">
-          <button class="botaoSair">DESATIVAR CONTA<i class="bi bi-x-circle" style="color:#8F0000;"></i></i>
+          <a href="/desativarUsuarios/{{$usuario -> id}}"><button class="botaoSair">DESATIVAR CONTA<i class="bi bi-x-circle" style="color:#8F0000; background-color:transparent;"></i></i></a>
 
 
 
@@ -92,7 +92,7 @@
                 <h3 class="mb-0">Informações</h3>
               </div>
              
-              <button  onclick="abrirModalAlter()" >
+              <button  onclick="abrirModalAlter()"  class="botaoEdicao">
                 <i class="bi bi-pencil-square fs-5" style="color:#05A4B6"></i>
               </button>
           
@@ -116,7 +116,7 @@
                 <h3 class="mb-0">Endereço e Contato</h3>
               </div>
         
-              <button  onclick="abrirModalAlterInfo()" >
+              <button  onclick="abrirModalAlterInfo()" class="botaoEdicao">
                 <i class="bi bi-pencil-square fs-5" style="color:#05A4B6"></i>
               </button>
          
