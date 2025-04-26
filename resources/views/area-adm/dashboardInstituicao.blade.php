@@ -243,7 +243,7 @@
                     </div>
                     <div class="input-modal-container">
                         <label for="usuario">Usuario</label>
-                        <input type="text" name="usuario" value="">
+                        <input type="text" name="usuario" value="{{ $usuario->arroba_user }}">
                     </div>
                     <div class="input-modal-container">
                         <label for="email">Email</label>

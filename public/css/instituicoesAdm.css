@@ -750,7 +750,7 @@ justify-content: center;
                   border: none;
                   outline: none;
                   border: 1px rgba(0, 0, 0, 0.091) solid;
-                  color: var(--cinzaClaro);
+                  color: black;
                   font-weight: 600;
                   padding-block: 0.8%;
                   font-size: 15px;
