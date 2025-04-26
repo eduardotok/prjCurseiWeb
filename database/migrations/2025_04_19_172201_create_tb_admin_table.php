@@ -13,15 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('tb_admin', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('nome_admin', 100);
+            $table->string('email_admin', 100)->unique();
+            $table->string('password', 300);
+            $table->string('token_admin', 36)->unique();
+            $table->string('img_admin', 36)->nullable();
             $table->timestamps();
         });
+       
     }
 
     /**
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('tb_admin');
     }
 };
