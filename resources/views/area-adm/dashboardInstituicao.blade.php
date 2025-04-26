@@ -218,11 +218,11 @@
             @method('PUT')
             <div class="topo-modal">
                 <div class="banner-modal">
-                    <img src="{{ asset('img/fotos/' . ($usuario->banner_user ?? 'default-banner.jpg')) }}" alt="">
+                    <img src="{{ asset('img/user/bannerPerfil/' . ($usuario->banner_user ?? 'default-banner.jpg')) }}" alt="">
                 </div>
                 <div class="abaixo-do-banner">
                     <div class="img-perfil-modal">
-                        <img src="{{ asset('img/fotos/' . ($usuario->img_user ?? 'default-avatar.jpg')) }}" alt="">
+                        <img src="{{ asset('img/user/fotoPerfil/' . ($usuario->img_user ?? 'default-banner.jpg')) }}" alt="">
                     </div>
                     <div class="botoes-alter-modal">
                     <label for="banner-upload" class="upload-label">Alterar foto de perfil</label>
