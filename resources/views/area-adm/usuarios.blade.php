@@ -67,7 +67,7 @@
                             @if ($usuario->img_user =="")
                             <img src="https://img.freepik.com/psd-gratuitas/ilustracao-3d-de-uma-pessoa-com-oculos-de-sol_23-2149436188.jpg?semt=ais_country_boost&w=740" alt="">
                             @else
-                            <img src="{{ asset('img/fotos/' . ($usuario->img_user ?? 'default-banner.jpg')) }}" alt="">
+                            <img src="{{ asset('img/user/fotoPerfil/' . ($usuario->img_user ?? 'default-banner.jpg')) }}" alt="">
                             @endif
                         </div>
                         <div class="info">

@@ -71,7 +71,7 @@
                 <div class="card">
              
                     <div class="imgContainer">
-                        <img src="{{ asset('img/fotos/' . ($instituicao->img_user ?? 'default-avatar.jpg')) }}" alt="Logo Senac" />
+                        <img src="{{ asset('img/user/fotoPerfil/' . ($usuario->img_user ?? 'default-banner.jpg')) }}" alt="Logo Senac" />
                         </div>
                     <div class="nomeCard">
                     <p>{{ $instituicao->nome_user }}</p>

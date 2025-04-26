@@ -18,7 +18,7 @@
         <div class="headerUserAdm">
 
             <div class="cabecalhoUser">
-                <img class="fotoUser" src="{{ asset('img/fotos/' . ($usuario->img_user ?? 'default-banner.jpg')) }}" alt="Logo">
+                <img class="fotoUser" src="{{ asset('img/user/fotoPerfil/' . ($usuario->img_user ?? 'default-banner.jpg')) }}" alt="Logo">
                 <h2>{{ $usuario->nome_user }}</h2>
             </div>
           <div class="buttonSair">

@@ -179,6 +179,7 @@ class AdminController extends Controller
   
     public function instituicoesAdm()
     {
+        
         $todasInstituicoes = User::whereHas('instituicao') // Só usuários que são instituições
             ->withCount([
                 'posts as total_curtidas' => function ($query) {
