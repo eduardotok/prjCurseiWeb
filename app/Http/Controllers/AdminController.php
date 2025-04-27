@@ -292,13 +292,13 @@ class AdminController extends Controller
         if ($request->hasFile('foto') && $request->file('foto')->isValid()) {
             $extensao = $request->foto->extension();
             $nomeImagem = md5($request->foto->getClientOriginalName() . strtotime('now')) . '.' . $extensao;
-            $request->foto->move(public_path('img/fotos'), $nomeImagem);
+            $request->foto->move(public_path('img/user/fotoPerfil'), $nomeImagem);
         }
     
         if ($request->hasFile('banner') && $request->file('banner')->isValid()) {
             $extensaoBanner = $request->banner->extension();
             $nomeBanner = md5($request->banner->getClientOriginalName() . strtotime('now')) . '.' . $extensaoBanner;
-            $request->banner->move(public_path('img/fotos'), $nomeBanner);
+            $request->banner->move(public_path('img/user/bannerPerfil'), $nomeBanner);
         }
 
 
