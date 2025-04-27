@@ -151,7 +151,7 @@
                                 <div class="col-12 my-3 mb-5" style="overflow-x: hidden;">
                                 <div class="col-12 d-flex flex-row ms-5 pt-2"  >
                                     <div class="box-post-perfil-preview col-1">
-                                        <img src="{{ url('img/img-instituicao/img-perfil/'. $item->img_user) }}" alt="">
+                                        <img src="{{ url('img/user/fotoPerfil/'. $item->img_user) }}" alt="">
                                     </div>
                                     <div class="col-11">
                                         <div class="col-12">
@@ -170,7 +170,7 @@
                                 <div class="col-12 ms-5" >
                                     <p>{{ $item->descricao_post }} </p>
                                     <div class="box-post-conteudo-preview bg-white" style="overflow-x: hidden;" >
-                                        <img src="{{ url('img/img-instituicao/img-posts/' . $item->conteudo_post) }}" alt="">
+                                        <img src="{{ url('img/user/imgPosts/' . $item->conteudo_post) }}" alt="">
                                     </div>
                                 </div>
                             </div>
