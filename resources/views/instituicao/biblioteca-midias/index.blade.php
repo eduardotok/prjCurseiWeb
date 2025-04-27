@@ -103,7 +103,7 @@
                         <div class="col-4 d-flex flex-row">
                             <div class="col-7">
                                 <div class="box-img-post">
-                                    <img src="{{ url('img/img-instituicao/img-posts/'. $item->conteudo_post)  }}" class="img-fluid" alt="" />
+                                    <img src="{{ url('img/user/imgPosts/'. $item->conteudo_post)  }}" class="img-fluid" alt="" />
                                 </div>
                             </div>
 
@@ -121,7 +121,7 @@
                             <span>{{$item->created_at}}</span>
                         </div>
                         <div class="col-2 mt-1 d-flex justify-content-center">
-                            <span>20.0000000</span>
+                            <span>0</span>
                         </div>
                         <div class="col-2 mt-1 d-flex justify-content-center">
                             <span>{{ $item->total_curtidas }}</span>

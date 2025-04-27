@@ -150,15 +150,13 @@
 }
 
 .divImgEspectadores {
-    width: 120px; /* Aumenta o tamanho da div */
+    width: 135px; /* Aumenta o tamanho da div */
     height: 120px; /* Torna a div quadrada */
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    border-radius: 10px;
-    background-color: #f0f0f0;
-    margin-right: 15px; /* Espaço entre a imagem e o texto */
+
 }   
 .divImgEspectadores img {
     width: 100%; /* A largura ocupará todo o espaço da div */

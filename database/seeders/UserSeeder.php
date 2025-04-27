@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
         $nomes = [
             'Guilherme', 'Rian', 'Breno', 'Hugo', 'Victor', 'Eduardo', 'Ellen', 'Caroline',
             'Felipe', 'Klayver', 'O alencar', 'Clara', 'O sergio', 'Clodoaldo', 'Rafaela', 'Thiago',
-            'Luciano', 'O santana', 'Junior & Aline', 'Fatec', 'Senai', 'SESI', 'Enap', 'Etec',
+            'Luciano', 'O santana', 'Junior & Aline', 'Vinicius', 'Fatec', 'Senai', 'SESI', 'Enap', 'Etec',
         ];
 
         $users = [];

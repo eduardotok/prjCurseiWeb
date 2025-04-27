@@ -69,7 +69,7 @@
                         @foreach ($postsMaisCurtidos as $post)
                         <div class="p-2 row h-50 d-flex align-items-center conteudoEspectadoresRecorrentes">
                             <div class="divImgEspectadores">
-                                <img src="{{ url('img/img-instituicao/img-login/logoCursei.png') }}"
+                                <img src="{{ url('img/user/imgPosts/' . $post->conteudo_post) }}"
                                     class="imgEspectadoresRecorrentes" alt="">
                             </div>
                             <div class="col">
@@ -89,7 +89,7 @@
                         @foreach ($ultimoSeguidor as $seguidor)
                         <div class="p-2 row h-50 d-flex align-items-center conteudoEspectadoresRecorrentes">
                             <div class="divImgEspectadores">
-                                <img src="{{ url('img/img-instituicao/img-login/logoCursei.png') }}"
+                                <img src="{{ url('img/user/fotoPerfil/' . $seguidor->imgUser) }}"
                                     class="imgEspectadoresRecorrentes" alt="">
                             </div>
                             <div class="col">

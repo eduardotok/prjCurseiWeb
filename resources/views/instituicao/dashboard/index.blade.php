@@ -68,7 +68,7 @@
 
                                 <div class="d-flex flex-row w-100 h-100 d-none d-xxl-flex">
                                     <div class="box-img-ultimo-editado">
-                                        <img class=" img-fluid" src="{{ url('img/img-instituicao/img-posts/' . $item->conteudo_post) }}" alt="">
+                                        <img class=" img-fluid" src="{{ url('img/user/imgPosts/' . $item->conteudo_post) }}" alt="">
                                     </div>
                                     <div class="d-flex justify-content-center flex-column ms-3">
                                         <h3>{{ $item->titulo_post }}</h3>
@@ -78,7 +78,7 @@
 
                                 <div class="d-flex flex-column  align-items-center text-center w-100 h-100 d-flex d-xxl-none">
                                     <div class="box-img-ultimo-editado mt-4">
-                                        <img class="img-fluid" src="{{ url('img/img-instituicao/img-posts/' . $item->conteudo_post) }}" alt="">
+                                        <img class="img-fluid" src="{{ url('img/user/imgPosts/' . $item->conteudo_post) }}" alt="">
                                     </div>
                                     <div class="d-flex justify-content-center py-2 flex-column ms-3">
                                         <h3>{{ $item->titulo_post }}</h3>
@@ -103,7 +103,7 @@
 
                                         <div class="col-12 d-flex flex-row h-100  ">
                                             <div class="box-img-planejados col-3">
-                                                <img class="img-fluid" src="{{url('img/img-instituicao/img-posts/' . $item->conteudo_post)}}" alt="">
+                                                <img class="img-fluid" src="{{url('img/user/imgPosts/' . $item->conteudo_post)}}" alt="">
                                             </div>
                                             <div class="col-8 ms-3 d-flex flex-column text-start justify-content-center">
                                                 <div class="d-flex align-items-end  justify-content-between col-12 h-50">

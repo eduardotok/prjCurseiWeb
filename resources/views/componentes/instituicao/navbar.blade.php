@@ -11,7 +11,7 @@
     <div class="d-flex justify-content-center align-items-center col-2" >
         <button class="nav-link dropdown-toggle botao-dropdown d-flex flex-row justify-content-center align-items-center" style="color: var(--cor-fonte)" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <div class="div-img-instituicao-perfil">
-                <img class="img-instituicao img-fluid" src="{{ url('img/img-instituicao/img-perfil/' . $instituicao->img_user) }}" alt="">
+                <img class="img-instituicao img-fluid" src="{{ url('img/user/fotoPerfil/' . $instituicao->img_user) }}" alt="">
             </div>
         </button>
         <ul class="dropdown-menu"  >

@@ -40,7 +40,7 @@
                     <div class="col-12 d-flex flex-row my-3">
                         <div style="width: 90px">
                             <div class="div-img-alterar">
-                                <img class="img-alterar img-fluid carregarImgPerfil" src="{{ url('img/img-instituicao/img-perfil/'. $instituicao->img_user) }}" alt="">
+                                <img class="img-alterar img-fluid carregarImgPerfil" src="{{ url('img/user/fotoPerfil/'. $instituicao->img_user) }}" alt="">
                                 <div class="conteudo-img-perfil">
                                     <i class="bi bi-camera"></i>
                                     <label for="imgPerfil" class="h-100 w-100 position-absolute"></label>
@@ -59,7 +59,7 @@
 
                     <div class="col-12 d-flex justify-content-center align-items-center">
                         <div class="div-img-banner">
-                            <img class="img-banner img-fluid bannerPreview" src="{{url('img/img-instituicao/banners/' . $instituicao->banner_user)}}" alt="">
+                            <img class="img-banner img-fluid bannerPreview" src="{{url('img/user/bannerPerfil/' . $instituicao->banner_user)}}" alt="">
                             <div class="conteudo-banner">
                                 <i class="bi bi-camera"></i>
                                 <label class="w-100 h-100 position-absolute " style="opacity: 0;" for="bannerImg">Clique Para Alterar Seu Banner!</label>
@@ -116,9 +116,9 @@
                     <div class="col-12 ">
                         <div class="box-preview-perfil" style="box-sizing: border-box; overflow-y:auto;">
                             <div class="col-12 position-relative">
-                                <img class="banner-preview bannerPreview" src="{{url('img/img-instituicao/banners/' . $instituicao->banner_user)}}" alt="">
+                                <img class="banner-preview bannerPreview" src="{{url('img/user/bannerPerfil/' . $instituicao->banner_user)}}" alt="">
                                 <div class="div-img-preview-perfil">
-                                    <img class="img-preview-perfil carregarImgPerfil" src="{{ url('img/img-instituicao/img-perfil/'. $instituicao->img_user) }}" alt="">
+                                    <img class="img-preview-perfil carregarImgPerfil" src="{{ url('img/user/fotoPerfil/'. $instituicao->img_user) }}" alt="">
                                 </div>
                             </div>
                             <div class="col-12 mt-3  d-flex justify-content-end">

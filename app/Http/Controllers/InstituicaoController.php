@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\Seguidores;
 use App\Models\User;
 use App\Models\Usuario;
+use Illuminate\Support\Facades\Hash; // coloca isso no início do seu arquivo
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -156,9 +157,9 @@ class InstituicaoController extends Controller
         // Buscar os posts mais curtidos
         $postsMaisCurtidos = DB::table('tb_post')
             ->join('tb_curtida', 'tb_post.id', '=', 'tb_curtida.id_post')
-            ->select('tb_post.titulo_post', DB::raw('COUNT(tb_curtida.id) as total_curtidas'))
+            ->select('tb_post.titulo_post','tb_post.conteudo_post', DB::raw('COUNT(tb_curtida.id) as total_curtidas'))
             ->where('tb_post.id_user', $instituicaoId) // Substitui o ID fixo
-            ->groupBy('tb_post.id', 'tb_post.titulo_post')
+            ->groupBy('tb_post.id', 'tb_post.titulo_post', 'tb_post.conteudo_post')
             ->orderBy('total_curtidas', 'desc')
             ->limit(5) // Limitar aos 5 posts mais curtidos
             ->get();
@@ -194,25 +195,21 @@ class InstituicaoController extends Controller
             'email' => 'required|email',
             'senha' => 'required'
         ]);
-
+    
         $instituicao = DB::table('tb_user')
             ->where('email_user', $request->email)
-            ->where('senha_user', $request->senha)
             ->first();
-
-        if ($instituicao) {
-
+    
+        if ($instituicao && Hash::check($request->senha, $instituicao->senha_user)) {
+            // Se a senha estiver correta
+    
             // Autenticar o usuário
             session(['instituicao_id' => $instituicao->id]);
-
+    
             // Redirecionar para a página inicial da instituição
             return redirect()->route('dashboard.index');
-        } 
-        if (!$instituicao) {
-            return redirect()->route('login')->withErrors('Usuário não encontrado ou não está logado.');
-        }
-        else {
-            return view('instituicao.login.index')->withErrors(['email' => 'Email ou senha inválidos']);
+        } else {
+            return redirect()->route('login')->withErrors('Email ou senha inválidos.');
         }
     }
 
@@ -411,7 +408,7 @@ class InstituicaoController extends Controller
     
                 $nomeImagem =   md5($request->imgPerfil->getClientOriginalName() . strtotime('now'). "." . $extensao);
     
-                $request->imgPerfil->move(public_path('img/img-instituicao/img-perfil'), $nomeImagem);
+                $request->imgPerfil->move(public_path('img/user/fotoPerfil/'), $nomeImagem);
             } if($request->hasFile('imgBanner') && $request->file('imgBanner')->isValid()){
                 if($item->img_banner && Storage::exists($item->banner_user)){
                     Storage::delete($item->banner_user);
@@ -421,7 +418,7 @@ class InstituicaoController extends Controller
 
                 $nomeBanner = md5($request->imgBanner->getClientOriginalName() . strtotime('now') . "." . $extensaoBanner);
 
-                $request->imgBanner->move(public_path('img/img-instituicao/banners/'), $nomeBanner);
+                $request->imgBanner->move(public_path('img/user/bannerPerfil/'), $nomeBanner);
             }
            
         }
