@@ -17,14 +17,13 @@ class Post extends Model
         'updated_at',
 
     ];
+    
     public function curtidas()
     {
         return $this->hasMany(Curtida::class, 'id_post', 'id');
     }
-
-    public function user()
-{
-    return $this->belongsTo(User::class, 'id_user');
-}
-
+    public function usuario()
+    {
+        return $this->belongsTo(User::class, 'id_user'); // 'id_user' é a chave estrangeira no modelo Post
+    }
 }

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Post;
+use App\Models\User;
 class PostControllerApi extends Controller
 {
     /**
@@ -16,6 +17,59 @@ class PostControllerApi extends Controller
         //
     }
 
+    public function indexApi()
+    {
+        $posts = Post::with('usuario')->get()->map(function ($post){
+            return [
+                'id' => $post->id,
+                'usuario' => [
+                    'nome_user' => $post->usuario->nome_user,
+                    'arroba_user' => $post->usuario->arroba_user,
+                    'img_user' => $post->usuario->img_user ? url('img/user/fotoPerfil/' . $post->conteudo_post) : null
+                ],
+                'descricao_post' => $post->descricao_post,
+                'criacao_post' => $post->created_at,
+                'image_url' => $post->conteudo_post ? url('img/user/imgPosts/' . $post->conteudo_post) : null
+
+            ];
+        });
+
+        
+        return response()->json([
+            'sucesso' => true,
+            'data' => $posts,
+            'message' => 'Posts Retornados com Sucesso',
+            'code' => 200,
+
+        ]);
+    }
+    
+    public function getPostsByUser($idUser)
+    {
+        $posts = Post::with('usuario')
+            ->where('id_user', $idUser) // Filtra os posts pelo id_user
+            ->get()
+            ->map(function ($post) {
+                return [
+                    'id' => $post->id,
+                    'usuario' => [
+                        'nome_user' => $post->usuario->nome_user,
+                        'arroba_user' => $post->usuario->arroba_user,
+                        'img_user' => $post->usuario->img_user ? url('img/user/fotoPerfil/' . $post->usuario->img_user) : null,
+                    ],
+                    'descricao_post' => $post->descricao_post,
+                    'criacao_post' => $post->created_at,
+                    'image_url' => $post->conteudo_post ? url('img/user/bannerPerfil/' . $post->conteudo_post) : null,
+                ];
+            });
+    
+        return response()->json([
+            'sucesso' => true,
+            'data' => $posts,
+            'message' => 'Posts do usuário retornados com sucesso',
+            'code' => 200,
+        ]);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -23,7 +77,7 @@ class PostControllerApi extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -32,11 +86,43 @@ class PostControllerApi extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function storeApi(Request $request, $idUser)
+{
+    // Verifica se o usuário existe antes de criar o post
+    $usuario = User::find($idUser);
+    if (!$usuario) {
+        return response()->json([
+            'sucesso' => false,
+            'mensagem' => 'Usuário não encontrado!',
+            'code' => 404,
+        ]);
     }
 
+    $nomeImagem = null;
+
+    if ($request->hasFile('conteudoPost') && $request->file('conteudoPost')->isValid()) {
+        $extensao = $request->conteudoPost->extension();
+        $nomeImagem = md5($request->conteudoPost->getClientOriginalName() . microtime()) . '.' . $extensao;
+        $request->conteudoPost->move(public_path('img/user/fotoPerfil/'), $nomeImagem);
+    }
+
+    // Cria o post associado ao usuário
+    $post = Post::create([
+        'status_post' => $request->statusPost,
+        'conteudo_post' => $nomeImagem, // Salva o nome do arquivo gerado
+        'descricao_post' => $request->descricaoPost,
+        'titulo_post' => $request->tituloPost,
+        'id_user' => $idUser, // Associa o post ao ID do usuário correto
+        'created_at' => now(),
+    ]);
+
+    return response()->json([
+        'sucesso' => true,
+        'mensagem' => 'Post criado com sucesso!',
+        'code' => 200,
+        'Post' => $post,
+    ]);
+}
     /**
      * Display the specified resource.
      *
