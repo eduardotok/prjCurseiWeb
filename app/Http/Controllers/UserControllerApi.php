@@ -184,30 +184,24 @@ public function storeApi(Request $request)
     {
         try{
 
-        
-        $user = User::where('email_user', $request->emailDigitado)->first();
-        if(Hash::check($request->senhaDigitada, $user->senha_user)){
-            $resultadoLogin = true;
+            $user = User::where('email_user', $request->emailDigitado)->first();
+
+            return response()->json([
+                'sucesso' => true,
+                'mensagem' => 'Fim do Processo',
+                'code' => 200,
+                'usuario' => $user
+            ]);
+
+        }catch(Exception $e){
+
+            return response()->json([
+                'sucesso' => false,
+                'mensagem' => 'Fim do Processo',
+                'code' => 200,
+                'error' => $e
+            ]);
         }
-
-        
-
-        return response()->json([
-            'sucesso' => true,
-            'mensagem' => 'Fim do Processo',
-            'code' => 200,
-            'usuario' => $user
-        ]);
-
-    }catch(Exception $e){
-
-        return response()->json([
-            'sucesso' => false,
-            'mensagem' => 'Fim do Processo',
-            'code' => 200,
-            'error' => $e
-        ]);
-    }
 
     }
     
