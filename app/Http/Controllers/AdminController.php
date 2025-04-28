@@ -199,7 +199,7 @@ class AdminController extends Controller
     public function selectAllPostAdm()
     {
 
-        $posts = Post::with(['user', 'curtidas'])->withCount('curtidas')->get();
+        $posts = Post::with(['usuario', 'curtidas'])->withCount('curtidas')->get();
 
         return view('area-adm.TodosPost', compact('posts'));
     }
@@ -207,7 +207,7 @@ class AdminController extends Controller
     public function selectAllRellsAdm()
     {
 
-        $Curtei = Curtei::with(['user', 'curtidas'])->withCount('curtidas')->get();
+        $Curtei = Curtei::with(['usuario', 'curtidas'])->withCount('curtidas')->get();
         return view('area-adm.TodosRells', compact('Curtei'));
     }
 
@@ -381,5 +381,17 @@ class AdminController extends Controller
         $instituicao->save();
 
         return redirect()->route('instituicao');
+    }
+    public function verificarInst($id,$acao){
+       if($acao == "aprovar"){
+        $instituicao = Instituicao::where('id_user', $id)->firstOrFail();
+        $instituicao->verificado_instituicao = 1;
+        $instituicao->save();
+        return redirect('/curseiAdm/dashInstituicaoAdm/'.$id);
+       }elseif( $acao == "recusar"){
+        Instituicao::where('id_user', $id)->delete();
+        return redirect( '/curseiAdm/instituicao');
+
+    }
     }
 }

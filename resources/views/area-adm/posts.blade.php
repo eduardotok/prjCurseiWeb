@@ -47,7 +47,7 @@
                                 <i class='bx bx-download'></i>
                             </div>
                             <div class="infos">
-                                <p>10.232</p>
+                                <p>0</p>
                                 <p>Downloads</p>
                             </div>
                         </div>
@@ -137,21 +137,21 @@
                 </div>
                 <div class="listarCards">
 
-
+                @foreach($topPosts as $post)   
                     <div class="cardsPost">
                         <div class="topoCard">
-                            <img src="https://th.bing.com/th/id/OIP.-Kw9SzjtlnVmviOxFweshwHaBu?rs=1&pid=ImgDetMain" alt="Logo" class="logoInstituicao">
-                            <h3 class="nomeInstituicao">Etec de Guaianazes</h3>
+                        <img src="{{asset('img/user/fotoPerfil/' . ($post->usuario->img_user ?? 'default-banner.jpg'))}}" alt="Logo" class="logoInstituicao">
+                        <h3 class="nomeInstituicao">{{'@'.$post->usuario->arroba_user ?? 'Desconhecido' }}</h3>
                         </div>
 
                         <p class="descricaoInstituicao">
-                            Venho fazer um anuncio, shadow o oricio é um cara muito legal e tirou uma foto muito legal cmg e agora eu amo p...
-                        </p>
+                                {{ $post->descricao_post }}
+                                </p>
 
 
-                        <div class="imagemPostagem">
-                            <img src="https://cdn-icons-png.flaticon.com/512/10110/10110025.png" alt="Imagem do post">
-                        </div>
+                                <div class="imagemPostagem">
+                <img src="{{asset('img/user/imgPosts/'.$post->conteudo_post)}}" alt="Imagem do post">
+            </div>
 
 
                         <div class="infoCard">
@@ -160,71 +160,14 @@
                                 Comentarios
                             </div>
                             <div>
-                                <span>100.5k</span>
+                            <span>{{ $post->curtidas_count }}</span>
                                 Curtidas
                             </div>
                         </div>
 
 
                     </div>
-                    <div class="cardsPost">
-                        <div class="topoCard">
-                            <img src="https://th.bing.com/th/id/OIP.-Kw9SzjtlnVmviOxFweshwHaBu?rs=1&pid=ImgDetMain" alt="Logo" class="logoInstituicao">
-                            <h3 class="nomeInstituicao">Etec de Guaianazes</h3>
-                        </div>
-
-                        <p class="descricaoInstituicao">
-                            Venho fazer um anuncio, shadow o oricio é um cara muito legal e tirou uma foto muito legal cmg e agora eu amo p...
-                        </p>
-
-
-                        <div class="imagemPostagem">
-                            <img src="https://cdn-icons-png.flaticon.com/512/10110/10110025.png" alt="Imagem do post">
-                        </div>
-
-
-                        <div class="infoCard">
-                            <div>
-                                <span>10.5k</span>
-                                Comentarios
-                            </div>
-                            <div>
-                                <span>100.5k</span>
-                                Curtidas
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <div class="cardsPost">
-                        <div class="topoCard">
-                            <img src="https://th.bing.com/th/id/OIP.-Kw9SzjtlnVmviOxFweshwHaBu?rs=1&pid=ImgDetMain" alt="Logo" class="logoInstituicao">
-                            <h3 class="nomeInstituicao">Etec de Guaianazes</h3>
-                        </div>
-
-                        <p class="descricaoInstituicao">
-                            Venho fazer um anuncio, shadow o oricio é um cara muito legal e tirou uma foto muito legal cmg e agora eu amo p...
-                        </p>
-
-
-                        <div class="imagemPostagem">
-                            <img src="https://cdn-icons-png.flaticon.com/512/10110/10110025.png" alt="Imagem do post">
-                        </div>
-
-
-                        <div class="infoCard">
-                            <div>
-                                <span>10.5k</span>
-                                Comentarios
-                            </div>
-                            <div>
-                                <span>100.5k</span>
-                                Curtidas
-                            </div>
-                        </div>
-
-
-                    </div>
+                @endforeach
 
                   
 

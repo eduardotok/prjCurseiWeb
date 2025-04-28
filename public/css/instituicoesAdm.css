@@ -106,7 +106,7 @@
 .listarCards{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 348px));
-    gap: 16px;
+    gap: 5px;
     width: 100%;
     margin-top: 3%;
     margin-bottom: 5%;
@@ -115,6 +115,7 @@
 .listarCards a{
   text-decoration: none;
 }
+
 
 @media (max-width: 1024px) {
     .listarCards {
@@ -131,7 +132,7 @@
 .card{
   background-color: var(--branco);
     width:100%;
-    height: 280px;
+    height: 300px;
     display: flex;
     max-width: 348px;
     flex-direction: column;
@@ -143,21 +144,22 @@
 }
 
 .imgContainer {
-    width: 136px;
-    height: 138px;
-
-    
+    width: 120px;
+    height: 120px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 auto 15px auto;
+    
+    border-radius: 100%;
+    overflow: hidden;
   }
 
   .imgContainer img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 100%;
+   
   }
 
 .nomeCard p {
@@ -235,12 +237,13 @@ overflow: hidden;
 display: flex;
 align-items: center;
 justify-content: center;
+border-radius: 20px;
 }
 
 .imagemPostagem img {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 
@@ -313,7 +316,16 @@ justify-content: center;
   width: 105px;
   height: 105px;
   border-radius: 50%;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  img{
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  }
 }
 
 
@@ -700,7 +712,7 @@ justify-content: center;
               width: 75%;
               display: flex;
               justify-content: space-evenly;
-              button{
+              label{
                   background-color: transparent;
                   border-radius: 5px;
                   border: none;
@@ -709,6 +721,9 @@ justify-content: center;
                   width: 170px;
                   font-size: 14px;
                   height: 27px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
               }
           }
       }
@@ -754,6 +769,8 @@ justify-content: center;
                   font-weight: 600;
                   padding-block: 0.8%;
                   font-size: 15px;
+                  background-color: var(--branco);
+                  color: var(--preto);
   
               }
           }
@@ -764,9 +781,7 @@ justify-content: center;
     display: none;
   }
 
-  .upload-label{
-    background-color: #3498db;
-  }
+
 
   .botoes-salva-cancelar{
       width: 100%;
@@ -841,4 +856,90 @@ to{
   justify-content: center;
   align-items: center;
   z-index: 9999;
+}
+.nome-botoes{
+ 
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 14%;
+  width:fit-content;
+  h2{
+    color: var(--cinzaEscuro);
+  }
+  h5{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--verde);
+    cursor: pointer;
+    i{
+      font-size: 25px;
+    }
+  }
+}
+.cont-modal-verificar{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: #05A4B6;
+  background-color: rgba(0,0,0,0.7);
+  animation: aparecerModalCont 300ms ease-in-out;
+
+  .modal-verificar{
+    background-color: var(--branco);
+    padding: 2% 0%;
+    border-radius: 5px;
+    border-left: 4px solid var(--verde);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: aparecerModal 800ms ease-in-out;  
+
+    h2{
+      font-weight: 600;
+      
+    }
+    p{
+      color: var(--cinzaEscuro);
+      font-size: 20px;
+      width: 70%;
+      margin-top: 2%;
+      text-align: center;
+    }
+    div{
+      display: flex;
+      width: 100%;
+      justify-content: space-evenly;
+      margin-top: 5%;
+      a{
+        background-color: var(--verde);
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        padding: 0px;
+        padding-block: 1.1%;
+        width: 40%;
+        font-size: 20px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        cursor: pointer;
+        &:hover{
+          color: #fff;
+        }
+      }
+      #recusar{
+        border: 2px solid var(--verde);
+        color: var(--verde);
+        background-color: transparent;
+      }
+    }
+  }
 }

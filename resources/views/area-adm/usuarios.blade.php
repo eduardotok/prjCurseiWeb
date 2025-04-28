@@ -71,7 +71,7 @@
                             @endif
                         </div>
                         <div class="info">
-                            <p>{{$usuario ->nome_user}}</p>
+                            <p>{{'@'.$usuario->arroba_user }}</p>
                             <p id="email">{{ $usuario-> email_user }}</p>
                         </div>
                         <div class="status">

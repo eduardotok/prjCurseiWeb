@@ -72,13 +72,13 @@
                 <div class="cardsPost">
                     <div class="topoCard">
                         <img src="https://th.bing.com/th/id/OIP.-Kw9SzjtlnVmviOxFweshwHaBu?rs=1&pid=ImgDetMain" alt="Logo" class="logoInstituicao">
-                        <h3 class="nomeInstituicao">{{ $C->user->nome_user ?? 'Desconhecido' }}</h3>
+                        <h3 class="nomeInstituicao">{{$C->usuario->arroba_user ?? 'Desconhecido' }}</h3>
                     </div>
 
        
 
                                     <div class="videoRells">
-                    <img src="https://th.bing.com/th/id/OIP.KsJ5JFAUTItSBIMp5E8JOgHaNd?rs=1&pid=ImgDetMain" alt="Imagem do post">
+                    <img src="https://i.ytimg.com/vi/S9uPNppGsGo/maxresdefault.jpg" alt="Imagem do post">
                 </div>
 
 

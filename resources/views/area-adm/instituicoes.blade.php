@@ -16,7 +16,7 @@
 
     <main>
 
-        <div class="container-fluid container">
+        <div class="container-fluid cont">
         <div class="tituloGeral">
                 <p>Instituições</p>
             </div>
