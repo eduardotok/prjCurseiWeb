@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Exception;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class UserControllerApi extends Controller
@@ -70,7 +72,7 @@ public function storeApi(Request $request)
         'sucesso' => true,
         'mensagem' => 'Usuário Cadastrado com Sucesso!',
         'code' => 200,
-        'Post' => $user,
+        'User' => $user,
     ]);
 }
 
@@ -85,13 +87,12 @@ public function storeApi(Request $request)
     public function showApi($id)
     {
         $user = User::where('id', $id)->get();
-        return $user;
-        // return response()->json([
-        //     'sucesso' => true,
-        //     'mensagem' => 'Usuario Encontrado com Sucesso!',
-        //     'code' => 200,
-        //     'Post' => $user
-        // ]);
+        return response()->json([
+            'sucesso' => true,
+            'mensagem' => 'Usuario Encontrado com Sucesso!',
+            'code' => 200,
+            'User' => $user
+        ]);
     }
 
     /**
@@ -179,4 +180,29 @@ public function storeApi(Request $request)
             'code' => 200,
         ]);
     }
+    public function selectUserLogin(Request $request)
+    {
+        try{
+
+            $user = User::where('email_user', $request->emailDigitado)->first();
+
+            return response()->json([
+                'sucesso' => true,
+                'mensagem' => 'Fim do Processo',
+                'code' => 200,
+                'usuario' => $user
+            ]);
+
+        }catch(Exception $e){
+
+            return response()->json([
+                'sucesso' => false,
+                'mensagem' => 'Fim do Processo',
+                'code' => 200,
+                'error' => $e
+            ]);
+        }
+
+    }
+    
 }
