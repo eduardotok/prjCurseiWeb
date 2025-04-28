@@ -73,7 +73,7 @@
           <div class="textoSeguidores"><h3>Seguidores </h3> <span>300</span> </div>
           <ul>
           @foreach ($ultimosSeguidores as $seg)
-            <li><img src="https://th.bing.com/th/id/OIP.Mi5jRuAbo2IaYrZ1FDy90AHaHa?rs=1&pid=ImgDetMain">{{ $seg->seguidor->nome_user ?? 'Desconhecido' }}</li>
+            <li><img src="{{ asset('img/user/fotoPerfil/' . ($seg->seguidor->img_user ?? 'default-banner.jpg')) }}">{{ $seg->seguidor->nome_user ?? 'Desconhecido' }}</li>
           @endforeach
            
            
@@ -85,7 +85,7 @@
           <div class="textoSeguidores"><h3>Seguindo </h3> <span>300</span> </div>
           <ul>
           @foreach ($seguindo  as $segui)
-            <li><img src="https://th.bing.com/th/id/OIP.Mi5jRuAbo2IaYrZ1FDy90AHaHa?rs=1&pid=ImgDetMain">{{ $segui->seguindo->nome_user ?? 'Desconhecido' }}</li>
+            <li><img src="{{ asset('img/user/fotoPerfil/' . ($segui->seguidor->img_user ?? 'default-banner.jpg')) }}">{{ $segui->seguindo->nome_user ?? 'Desconhecido' }}</li>
           @endforeach
           </ul>
         </div>
