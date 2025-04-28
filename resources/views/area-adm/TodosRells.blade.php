@@ -71,14 +71,14 @@
              @foreach($Curtei as $C)    
                 <div class="cardsPost">
                     <div class="topoCard">
-                        <img src="https://th.bing.com/th/id/OIP.-Kw9SzjtlnVmviOxFweshwHaBu?rs=1&pid=ImgDetMain" alt="Logo" class="logoInstituicao">
-                        <h3 class="nomeInstituicao">{{$C->usuario->arroba_user ?? 'Desconhecido' }}</h3>
+                        <img src="{{ asset('img/user/fotoPerfil/' . ($C->user->img_user ?? 'default-banner.jpg')) }}" alt="Logo" class="logoInstituicao">
+                        <h3 class="nomeInstituicao">{{ $C->user->nome_user ?? 'Desconhecido' }}</h3>
                     </div>
 
        
 
                                     <div class="videoRells">
-                    <img src="https://i.ytimg.com/vi/S9uPNppGsGo/maxresdefault.jpg" alt="Imagem do post">
+                    <img src="{{ asset('img/user/imgRells/imgRells.jpg') }}" alt="Imagem do post">
                 </div>
 
 

@@ -79,7 +79,9 @@
 
 
                                 <div class="imagemPostagem">
-                <img src="{{asset('img/user/imgPosts/'.$post->conteudo_post)}}" alt="Imagem do post">
+
+                                
+                <img src="{{ asset('img/user/imgPosts/' . ($post->conteudo_post ?? 'default-banner.jpg')) }}" alt="Imagem do post">
             </div>
 
 
